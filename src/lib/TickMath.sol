@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0-or-later
+// SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.25;
 
 /// @title Math library for computing sqrt prices from ticks and vice versa
