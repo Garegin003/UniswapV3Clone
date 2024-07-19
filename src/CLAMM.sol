@@ -11,6 +11,14 @@ contract CLAMM {
     int24 immutable tickSpacing;
     uint128 public maxLiquidityPerTick;
 
+    struct Slot0 {
+        uint160 sqrtPriceX96;
+        int24 tick;
+        bool unlocked;
+    }
+
+    Slot0 public slot0;
+
     constructor(address _token0,address _token1,uint24 _fee,int24 _tickSpacing) {
         token0 = _token0;
         token1 = _token1;
