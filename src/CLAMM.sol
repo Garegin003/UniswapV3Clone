@@ -26,6 +26,17 @@ contract CLAMM {
         tickSpacing = _tickSpacing;
         maxLiquidityPerTick = Tick.tickSpacingToMaxLiquidityPerTick(_tickSpacing);
     }
+
+    function initialize(uint160 sqrtPriceX96) external {
+        require(slot0.sqrtPriceX96 == 0, "already initilized");
+
+        int24 tick = TickMath.getTickAtSqrtRatio(sqrtPriceX96);
+        slot0 = Slot0({
+            sqrtPriceX96: sqrtPriceX96,
+            tick:tick,
+            unlocked: true
+        });
+    }
 }
 
 
